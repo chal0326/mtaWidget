@@ -2,6 +2,11 @@
 
 A Scriptable widget that shows real-time MTA subway arrival times for the station closest to your current location.
 
+<div align="center">
+  <img src="widgetsmallmedium.png" alt="Small and Medium Widget Sizes" width="300"/>
+  <img src="widgetlarge.png" alt="Large Widget Size" width="300"/>
+</div>
+
 ## Features
 
 - Shows upcoming train arrivals for both Uptown and Downtown directions
