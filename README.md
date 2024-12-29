@@ -15,6 +15,8 @@ A Scriptable widget that shows real-time MTA subway arrival times for the statio
 
 1. iOS device
 2. [Scriptable app](https://apps.apple.com/us/app/scriptable/id1405459188) installed
+    -Scriptable is an app that allows you to run scripts on your device using JavaScript. 
+    -It allows you to create fully customizable widgets, extends the functionality of your device, and allows you to create your own scripts to automate your device.
 3. Location Services enabled for Scriptable:
    - When prompted, select "While Using the App or Widgets" for location access
    - The prompt will explain: "Scriptable needs access to your location in order to use it in your scripts"
