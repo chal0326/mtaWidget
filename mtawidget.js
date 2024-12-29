@@ -1,6 +1,6 @@
 // Variables used by Scriptable.
 // These must be at the very top of the file. Do not edit.
-// icon-color: deep-gray; icon-glyph: train;
+// icon-color: ${Device.isUsingDarkAppearance() ? 'light-gray' : 'deep-gray'}; icon-glyph: train;
 
 // MTA Train Widget added by Cody Hall
 // Version 1.1
@@ -42,7 +42,7 @@ const widgetConfig = {
   // Temporarily set fonts; will be initialized in the MTAWidget constructor based on widget family
   let fonts = {};
   
-  // Route colors with dark/light mode support
+  // Route colors
   const getRouteColors = () => ({
     A: Color.blue(),
     C: Color.blue(),
@@ -89,11 +89,9 @@ const widgetConfig = {
   class MTAWidget {
     constructor(family) {
       this.widget = new ListWidget();
-      this.colorMode = widgetConfig.colorMode.auto;  // Changed to auto by default
-      this.isDark = this.determineColorMode();
+      this.colorMode = widgetConfig.colorMode.dark; // Force dark mode for testing
       this.widgetFamily = family;
       this.setupFonts();
-      this.setupWidget();
     }
   
     setupFonts() {
@@ -108,6 +106,7 @@ const widgetConfig = {
     }
   
     setupWidget() {
+      console.log(`Setting up widget with isDark: ${this.isDark}`);
       this.widget.backgroundColor = this.isDark ? 
         new Color("1C1C1E") : new Color("F2F2F7");
       this.widget.setPadding(12, 12, 12, 12);  // Reduced padding
@@ -168,6 +167,9 @@ const widgetConfig = {
     }
   
     async render() {
+      this.isDark = this.determineColorMode();
+      this.setupWidget();
+      
       const data = await this.loadTrainData();
       if (!data) {
         const errorText = this.widget.addText("Unable to load train data");
@@ -189,7 +191,7 @@ const widgetConfig = {
       const titleStack = this.widget.addStack();
       titleStack.layoutHorizontally();
       titleStack.centerAlignContent();
-      titleStack.setPadding(0, 0, 0, 0); // Ensure no additional padding affects alignment
+      titleStack.setPadding(0, 0, 1, 0); // Ensure no additional padding affects alignment
   
       // Add a spacer before the title to push it to the center
       titleStack.addSpacer()
@@ -212,7 +214,6 @@ const widgetConfig = {
       mainStack.layoutHorizontally();
       mainStack.centerAlignContent();
   
-      // Add left spacer for equal spacing
       mainStack.addSpacer();
   
       // Left column - Uptown
@@ -222,10 +223,10 @@ const widgetConfig = {
       const northLabel = leftStack.addText("Uptown ▲");
       northLabel.font = fonts.status;
       northLabel.textColor = Color.gray();
+      leftStack.addSpacer(3); // Add 4px padding below label
   
       this.createTrainStack(leftStack, data.N);
   
-      // Add flexible spacer between columns
       mainStack.addSpacer();
   
       // Right column - Downtown
@@ -235,10 +236,10 @@ const widgetConfig = {
       const southLabel = rightStack.addText("Downtown ▼");
       southLabel.font = fonts.status;
       southLabel.textColor = Color.gray();
+      rightStack.addSpacer(3); // Add 4px padding below label
   
       this.createTrainStack(rightStack, data.S);
   
-      // Add right spacer for equal spacing
       mainStack.addSpacer();
     }
   

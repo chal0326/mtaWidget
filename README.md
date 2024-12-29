@@ -7,7 +7,7 @@ A Scriptable widget that shows real-time MTA subway arrival times for the statio
 - Shows upcoming train arrivals for both Uptown and Downtown directions
 - Automatically finds the nearest subway station based on your location
 - Displays train line indicators with official MTA colors
-- Supports dark/light mode based on system settings
+- Uses dark mode for consistent appearance
 - Available in all iOS widget sizes (small, medium, large)
 - Updates every 30 seconds
 
@@ -47,7 +47,10 @@ The widget includes some configurable options at the top of the script:
 ```javascript
 const widgetConfig = {
   refreshInterval: 30,  // Update frequency in seconds
-  useSystemFont: true   // Use system font instead of custom font
+  useSystemFont: true,  // Use system font instead of custom font
+  colorMode: {         // Widget appearance mode
+    dark: 2            // Currently fixed to dark mode
+  }
 };
 ```
 
