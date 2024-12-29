@@ -43,7 +43,7 @@ const widgetConfig = {
   let fonts = {};
   
   // Route colors with dark/light mode support
-  const getRouteColors = (isDark) => ({
+  const getRouteColors = () => ({
     A: Color.blue(),
     C: Color.blue(),
     E: Color.blue(),
@@ -52,10 +52,10 @@ const widgetConfig = {
     F: new Color("FD7023"),
     FX: new Color("FD7023"),
     M: new Color("FD7023"),
-    N: new Color(isDark ? "fccc0a" : "EEAE00"),
-    Q: new Color(isDark ? "fccc0a" : "EEAE00"),
-    R: new Color(isDark ? "fccc0a" : "EEAE00"),
-    W: new Color(isDark ? "fccc0a" : "EEAE00"),
+    N: new Color("FCCC0A"),
+    Q: new Color("FCCC0A"),
+    R: new Color("FCCC0A"),
+    W: new Color("FCCC0A"),
     S: new Color("808183"),
     FS: new Color("808183"),
     H: new Color("808183"),
@@ -251,7 +251,7 @@ const widgetConfig = {
       }
   
       const displayCount = this.getDisplayCount();
-      const routeColors = getRouteColors(this.isDark);
+      const routeColors = getRouteColors();
       
       const trainListStack = parentStack.addStack();
       trainListStack.layoutVertically();
