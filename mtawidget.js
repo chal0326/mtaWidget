@@ -8,9 +8,7 @@
 // Configuration
 const widgetConfig = {
     defaultLocations: {
-      jayStreet: { lat: 40.6922632, lon: -73.9868766, name: "Jay St MetroTech" },
       timesSquare: { lat: 40.755356, lon: -73.987042, name: "Times Sq-42 St" },
-      roosevelt: { lat: 40.7468117, lon: -73.8910024, name: "Jackson Hts-Roosevelt Av" }
     },
     colorMode: {
       auto: 0,

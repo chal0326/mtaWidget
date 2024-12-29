@@ -25,7 +25,7 @@ A Scriptable widget that shows real-time MTA subway arrival times for the statio
 1. Download [Scriptable](https://apps.apple.com/us/app/scriptable/id1405459188) from the App Store
 2. Open Scriptable
 3. Tap the + button to create a new script
-4. Copy the entire contents of `mta-widget.js` and paste it into the new script
+4. Copy the entire contents of `mtaWidget.js` and paste it into the new script
 5. Tap the name at the top and rename it to "MTA Widget"
 6. Tap Done to save
 
@@ -53,10 +53,9 @@ const widgetConfig = {
 
 ## Default Stations
 
-If location services are unavailable, the widget will default to one of these stations:
+If location services are unavailable, the widget will default to this stations:
 - Times Square-42 St
-- Jay St MetroTech
-- Jackson Heights-Roosevelt Av
+You can change the default stations by editing the `defaultLocations` object in the script.
 
 ## Troubleshooting
 
